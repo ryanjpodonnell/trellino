@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'backbone-on-rails'
+gem 'serialize_json-rails', '~> 0.0.1'
 
 group :doc do
   gem 'sdoc', require: false

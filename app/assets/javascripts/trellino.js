@@ -4,7 +4,8 @@ window.Trellino = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new Trellino.Routers.AppRouter();
+    Backbone.history.start();
   }
 };
 
