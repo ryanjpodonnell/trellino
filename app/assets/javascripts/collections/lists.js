@@ -1,5 +1,7 @@
 Trellino.Collections.Lists = Backbone.Collection.extend({
 
-  model: Trellino.Models.List
+  model: Trellino.Models.List,
+  
+  comparator: "rank"
 
 });

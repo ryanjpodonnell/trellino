@@ -7,6 +7,7 @@ Trellino.Collections.Boards = Backbone.Collection.extend({
     var boards = this;
 
     if (model = this.get(id)) {
+      model.fetch();
       return model;
     } else {
       model = new Trellino.Models.Board({ id: id });
