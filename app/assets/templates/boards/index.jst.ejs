@@ -1,11 +1,23 @@
-<h1>Boards</h1>
+<div class="container">
 
-<ul>
-  <% boards.each(function (board) { %>
-  	<a href="#boards/<%= board.id %>">
-      <li>
-        <%= board.escape('title') %>
-      </li>
-    </a>
-  <% }); %>
-</ul>
+  <h1>Boards</h1>
+
+  <ul>
+    <% boards.each(function (board) { %>
+    	<a href="#boards/<%= board.id %>">
+        <li>
+          <%= board.escape('title') %>
+        </li>
+      </a>
+    <% }); %>
+  </ul>
+
+  <form class="form-inline" role="form">
+    <div class="form-group">
+      <label class="sr-only" for="inputBoardName">Create New Board</label>
+      <input type="email" class="form-control" id="inputBoardName" placeholder="Create a new Board">
+    </div>
+    <button type="submit" class="btn btn-default">Sign in</button>
+  </form>
+
+</div>
