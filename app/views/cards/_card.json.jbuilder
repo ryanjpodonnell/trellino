@@ -1,0 +1,10 @@
+json.(
+  card, 
+  :id,
+  :title,
+  :description,
+  :rank,
+  :list_id,
+  :created_at, 
+  :updated_at
+)

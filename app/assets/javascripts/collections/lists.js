@@ -1,11 +1,11 @@
 Trellino.Collections.Lists = Backbone.Collection.extend({
-  url: "/api/lists",
+  comparator: "rank",
+  
   initialize: function(options) {
     this.board = options.board;
   },
   
   model: Trellino.Models.List,
   
-  comparator: "rank"
-
+  url: "/api/lists"
 });

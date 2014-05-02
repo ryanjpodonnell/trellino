@@ -14,6 +14,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   },
   
   addList: function (list) {
+    debugger
     var listsShowView = new Trellino.Views.ListsShow({
       model: list
     });
