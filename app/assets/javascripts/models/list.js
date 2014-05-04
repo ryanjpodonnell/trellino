@@ -18,15 +18,5 @@ Trellino.Models.List = Backbone.Model.extend({
     }
 
     return jsonResp;
-  },
-  
-  toJSON: function () {
-    debugger
-		var json = Backbone.Model.prototype.toJSON.call(this);
-
-		delete json.created_at;
-		delete json.updated_at;
-
-		return json;
-	}
+  }
 });

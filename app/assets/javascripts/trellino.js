@@ -4,8 +4,15 @@ window.Trellino = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new Trellino.Routers.AppRouter();
-    Backbone.history.start();
+    Trellino.Collections.boards = new Trellino.Collections.Boards();
+		Trellino.Collections.boards.fetch({
+			success: function() {			
+				new Trellino.Routers.AppRouter({
+					$rootEl: $('#content')
+				});
+				Backbone.history.start();
+		  }
+    });
   }
 };
 
@@ -61,8 +68,4 @@ Backbone.CompositeView = Backbone.View.extend({
 
     return this._subviews;
   }
-});
-
-$(document).ready(function(){
-  Trellino.initialize();
 });

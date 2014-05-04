@@ -19,5 +19,3 @@ Trellino.Collections.Boards = Backbone.Collection.extend({
   
   url: "/api/boards",
 });
-
-Trellino.Collections.boards = new Trellino.Collections.Boards();

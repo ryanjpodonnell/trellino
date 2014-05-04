@@ -4,12 +4,15 @@ Trellino.Routers.AppRouter = Backbone.Router.extend({
     "boards/:id": "boardsShow"
   },
   
+  initialize: function(options) {
+		this.$rootEl = options.$rootEl
+	},
+  
   boardsIndex: function () {
     var indexView = new Trellino.Views.BoardsIndex({
       collection: Trellino.Collections.boards
     });
-
-    Trellino.Collections.boards.fetch();
+    
     this._swapView(indexView);
   },
   
