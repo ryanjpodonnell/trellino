@@ -1,2 +1,2 @@
-class CardsController < ApplicationController
+class Api::CardsController < ApplicationController
 end

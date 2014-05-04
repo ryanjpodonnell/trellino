@@ -7,14 +7,13 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     
     this.model.lists().each(this.addList.bind(this));
 
-    var listNewView = new Trellino.Views.ListsNew({
-      board: this.model
-    });
+    // var listNewView = new Trellino.Views.ListsNew({
+    //   board: this.model
+    // });
     // this.addSubview(".list-new", listNewView);
   },
   
   addList: function (list) {
-    debugger
     var listsShowView = new Trellino.Views.ListsShow({
       model: list
     });
