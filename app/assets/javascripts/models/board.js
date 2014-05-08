@@ -16,7 +16,5 @@ Trellino.Models.Board = Backbone.Model.extend({
     }
 
     return jsonResp;
-  },
-  
-  urlRoot: "/api/boards"
+  }
 });

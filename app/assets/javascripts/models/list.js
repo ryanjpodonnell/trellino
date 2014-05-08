@@ -4,7 +4,7 @@ Trellino.Models.List = Backbone.Model.extend({
       this._cards = new Trellino.Collections.Cards([], {
         list: this
       });
-      this._cards.fetch();
+      // this._cards.fetch();
     }
   
     return this._cards;
