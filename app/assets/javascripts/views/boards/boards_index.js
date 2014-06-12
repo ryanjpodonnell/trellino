@@ -3,6 +3,7 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
   
   initialize: function (options) {
     this.listenTo(this.collection, "sync", this.render);
+    $('body').css('background-color', '#fff');
   },
   
   render: function () {
