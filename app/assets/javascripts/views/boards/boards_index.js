@@ -28,7 +28,7 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
   
   createBoard: function (event) {
     event.preventDefault();
-    // var params = $('form').serializeJSON().board;
+    
     var params = {title: $('#board-title').val()}
 		this.collection.create(params, { wait: true });
 		Backbone.history.navigate("", { trigger: true });

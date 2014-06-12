@@ -385,10 +385,10 @@
   border-color: $navbar-default-border;
 
   .navbar-brand {
-    color: $navbar-default-brand-color;
+    color: #92B5CA;
     &:hover,
     &:focus {
-      color: $navbar-default-brand-hover-color;
+      color: #fff;
       background-color: $navbar-default-brand-hover-bg;
     }
   }

@@ -1,4 +1,23 @@
-<div class="jumbotron">
-  <h1><%= list.escape("title") %></h1>
-  <div class="cards-index"></div>
+<div class="col-xs-12 col-md-3">
+  <div class="thumbnail">
+    <h4><%= list.escape("title") %></h4>
+    
+    <div class="cards-show"></div>
+    
+    <div class="new-card card-add toggle-form">Add a card...</div>
+  	
+    <form role="form" class="new-card toggle-form" style="display:none">
+      <div class="form-group">
+        <label class="sr-only" for="card-title">Title</label>
+    		<input type="text" class="form-control" 
+    			name="card[title]"
+          id="card-title" />
+      </div>
+  	</form>
+    
+    <button class="create-card btn btn-success new-card" style="display:none">Create</button>
+	  
+    <button class="cancel-card btn btn-danger new-card" style="display:none">Cancel</button>
+  
+  </div>
 </div>

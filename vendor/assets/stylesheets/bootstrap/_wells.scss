@@ -7,9 +7,9 @@
 .well {
   min-height: 20px;
   padding: 19px;
-  margin-bottom: 20px;
-  background-color: $well-bg;
-  border: 1px solid $well-border;
+  margin-bottom: 5px;
+  background-color: #fff;
+  border: 1px solid #BDBDBD;
   border-radius: $border-radius-base;
   @include box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
   blockquote {
@@ -24,6 +24,6 @@
   border-radius: $border-radius-large;
 }
 .well-sm {
-  padding: 9px;
+  padding: 8px;
   border-radius: $border-radius-small;
 }

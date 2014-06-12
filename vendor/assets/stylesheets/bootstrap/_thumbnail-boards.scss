@@ -4,14 +4,16 @@
 
 
 // Mixin and adjust the regular image class
-.thumbnail {
+.thumbnail-board {
   display: block;
   padding: $thumbnail-padding;
   margin-bottom: $line-height-computed;
   line-height: $line-height-base;
-  background-color: #DBDBDB;
+  background-color: #23719F;
   border: 1px solid $thumbnail-border;
   border-radius: $thumbnail-border-radius;
+  height: 100px;
+  color: #fff;
   @include transition(all .2s ease-in-out);
 
   > img,
@@ -28,21 +30,19 @@
     padding: $thumbnail-caption-padding;
     color: $thumbnail-caption-color;
   }
-  
-  .card-add {
-    color: #939393;
-  }
-  
-  .card-add:hover {
-    background-color: #C3C3C3;
-    color: #000;
-    text-decoration: underline;
-  }
 }
 
 // Add a hover state for linked versions only
-a.thumbnail:hover,
-a.thumbnail:focus,
-a.thumbnail.active {
-  border-color: $link-color;
+a.thumbnail-board:hover,
+a.thumbnail-board:focus,
+a.thumbnail-board.active {
+  background-color: #1F658E;
+}
+
+.thumbnail-board:hover,
+.thumbnail-board:focus,
+.thumbnail-board.active {
+  background-color: #1F658E;
+  color: #fff;
+  text-decoration: none;
 }

@@ -1,6 +1,11 @@
 Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   template: JST['boards/show'],
   
+  events: {
+		'click .toggle-form, .cancel-card': 'toggleCard',
+		'click .create-card': 'createCard'
+  },
+  
   initialize: function () {
     this.listenTo(this.model, "sync", this.render)
     this.listenTo(this.model.lists(), "add", this.addList);
@@ -14,7 +19,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
       model: list
     });
     
-    this.addSubview(".lists", listsShowView);
+    this.addSubview(".list-show", listsShowView);
     listsShowView.render();
   },
   
@@ -27,5 +32,18 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     this.renderSubviews();
 
     return this;
-  }
+  },
+  
+  toggleCard: function (event) {
+		event.preventDefault();
+		$(event.target).parent().find('.new-card').toggle();
+	},
+  
+  createCard: function (event) {
+    event.preventDefault();
+    
+    var params = {title: $('#card-title').val()}
+		this.collection.create(params, { wait: true });
+		Backbone.history.navigate("", { trigger: true });
+	}
 });
