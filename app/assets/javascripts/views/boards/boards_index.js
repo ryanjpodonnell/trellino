@@ -31,7 +31,6 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
     // var params = $('form').serializeJSON().board;
     var params = {title: $('#board-title').val()}
 		this.collection.create(params, { wait: true });
-
 		Backbone.history.navigate("", { trigger: true });
 	}
 });
