@@ -1,23 +1,25 @@
-<div class="container">
+<h2><span class="glyphicon glyphicon-user"></span> My Boards</h2>
 
-  <h1>Boards</h1>
+<% boards.each(function(board) { %>
+	<a href="#boards/<%= board.id %>">
+		<div class="board-container">
+			<%= board.escape('title') %>
+		</div>
+	</a>
+<% })%>
 
-  <ul>
-    <% boards.each(function (board) { %>
-    	<a href="#boards/<%= board.id %>">
-        <li>
-          <%= board.escape('title') %>
-        </li>
-      </a>
-    <% }); %>
-  </ul>
+<div class="new-board toggle-form">
+	Add board...
+</div>
 
-  <form class="form-inline" role="form">
-    <div class="form-group">
-      <label class="sr-only" for="inputBoardName">Create New Board</label>
-      <input type="email" class="form-control" id="inputBoardName" placeholder="Create a new Board">
-    </div>
-    <button type="submit" class="btn btn-default">Sign in</button>
-  </form>
+<div class="new-board" style="display:none">
+	<form class="form">
+		<input type="text" class="form-control" 
+			name="board[title]"
+      id="board-title"
+			placeholder="Enter title..." />
 
+		<button class="create-board btn btn-success pull-right">Create</button>
+  	<button class="cancel-board btn btn-danger pull-right">Cancel</button>
+	</form>
 </div>

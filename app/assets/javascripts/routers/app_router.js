@@ -31,7 +31,7 @@ Trellino.Routers.AppRouter = Backbone.Router.extend({
       this.currentView.remove();
     }
     this.currentView = view;
-
-    $("body").html(view.render().$el);
+    
+    this.$rootEl.html(view.render().$el);
   }
 });

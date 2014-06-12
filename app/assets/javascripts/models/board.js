@@ -22,5 +22,7 @@ Trellino.Models.Board = Backbone.Model.extend({
 
 		delete jsonResp.lists;
 		return jsonResp;
-  }
+  },
+  
+  url: "/api/boards"
 });
