@@ -11,6 +11,12 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     this.listenTo(this.model.lists(), "add", this.addList);
     
     this.model.lists().each(this.addList.bind(this));
+    
+    var listsNewView = new Trellino.Views.ListsNew({
+      model: this.model
+    });
+    this.addSubview(".list-new", listsNewView);
+    
     $('body').css('background-color', '#23719f');
   },
   
