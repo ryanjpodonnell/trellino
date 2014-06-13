@@ -36,14 +36,18 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   
   toggleCard: function (event) {
 		event.preventDefault();
-		$(event.target).parent().find('.new-card').toggle();
+    $(event.target).parent().find('.new-card').toggle();
 	},
   
   createCard: function (event) {
     event.preventDefault();
     
-    var params = {title: $('#card-title').val()}
-		this.collection.create(params, { wait: true });
-		Backbone.history.navigate("", { trigger: true });
+    var listId = parseInt($(event.target).parent().attr("data-id"));
+    var $list = $(event.target).parent();
+    var params = {title: $list.find('#card-title').val(), rank: 0, list_id: listId};
+		this.collection.get(listId).cards().create(params, { wait: true });
+    
+    $list.find('.new-card').toggle();
+    $list.find('#card-title').val('');
 	}
 });

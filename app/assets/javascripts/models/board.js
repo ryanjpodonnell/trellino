@@ -9,7 +9,7 @@ Trellino.Models.Board = Backbone.Model.extend({
     return this._lists;
   },
   
-  parse: function (jsonResp) {    
+  parse: function (jsonResp) {
     var board = this;
     
 		_(jsonResp.lists).each(function(list) {

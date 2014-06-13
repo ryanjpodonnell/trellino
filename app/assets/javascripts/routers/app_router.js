@@ -10,6 +10,7 @@ Trellino.Routers.AppRouter = Backbone.Router.extend({
   
   boardsIndex: function () {
     var indexView = new Trellino.Views.BoardsIndex({
+      model: new Trellino.Models.Board(),
       collection: Trellino.Collections.boards
     });
     
