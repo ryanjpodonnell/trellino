@@ -14,6 +14,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 		});
 
     this.addSubview(".cards-show", cardsShowView);
+    cardsShowView.render();
 	},
   
   render: function () {

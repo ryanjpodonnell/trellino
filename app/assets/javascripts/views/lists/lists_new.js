@@ -28,5 +28,6 @@ Trellino.Views.ListsNew = Backbone.View.extend({
     var params = {title: title, rank: 0, board_id: this.model.id};
     
 		this.model.lists().create(params, { wait: true });
+    $('#list-title').val('');
   }
 });
