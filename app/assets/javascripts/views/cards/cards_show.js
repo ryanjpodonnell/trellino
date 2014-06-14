@@ -1,4 +1,4 @@
-Trellino.Views.CardsShow = Backbone.CompositeView.extend({
+Trellino.Views.CardsShow = Backbone.View.extend({
   template: JST['cards/show'],
   
   initialize: function () {
