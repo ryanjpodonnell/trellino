@@ -9,6 +9,14 @@ class Api::ListsController < ApplicationController
     end
   end
   
+  def destroy
+    @list = List.find(params[:id])
+    
+    if @list.destroy
+      render "lists/show"
+    end
+  end
+  
   def index
     @lists = Board.find(params[:board_id]).lists
     render "lists/index"

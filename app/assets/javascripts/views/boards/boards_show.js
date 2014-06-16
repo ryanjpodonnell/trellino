@@ -3,15 +3,18 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   
   events: {
 		'click .toggle-form, .cancel-card': 'toggleCard',
-		'click .create-card': 'createCard'
+		'click .create-card': 'createCard',
+    'click .delete-list': 'deleteList'
   },
   
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render)
+    this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.lists(), "add", this.addList);
+    this.listenTo(this.collection, "remove", this.render);
     
     this.model.lists().each(this.addList.bind(this));
     
+    this._listsViews = [];
     this._listsNewView = new Trellino.Views.ListsNew({
       model: this.model
     });
@@ -21,7 +24,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   },
   
   addList: function (list) {
-    // if (this.model.lists().length == 4) {      
+    // if (this.model.lists().length == 4) {
     //   this.removeSubview(".list-new", this._listsNewView);
     // }
     var listsShowView = new Trellino.Views.ListsShow({
@@ -29,6 +32,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     });
     this.addSubview(".list-show", listsShowView);
     listsShowView.render();
+    this._listsViews.push({view: listsShowView, id: list.id});
   },
   
   render: function () {
@@ -57,5 +61,20 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     
     $list.find('.new-card').toggle();
     $list.find('#card-title').val('');
-	}
+	},
+  
+  deleteList: function (event) {
+    event.preventDefault();
+    
+    var listId = parseInt($(event.target).attr("data-id"));
+    var list = this.collection.get(listId);
+    
+		list.destroy();
+    this.collection.remove(list);
+    for (var i = 0; i < this._listsViews.length; i += 1) {
+      if (this._listsViews[i].id === listId) {
+        this.removeSubview(".list-show", this._listsViews[i].view);
+      }
+    }
+  }
 });
