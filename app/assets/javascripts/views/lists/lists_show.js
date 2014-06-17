@@ -1,21 +1,15 @@
-Trellino.Views.ListsShow = Backbone.CompositeView.extend({
+Trellino.Views.ListsShow = Backbone.View.extend({
   template: JST['lists/show'],
   
-  initialize: function () {
-    this.listenTo(this.model, "sync", this.render)
-    this.listenTo(this.model.cards(), "add", this.addCard);
-    
-    this.model.cards().each(this.addCard.bind(this));
+  events: {
+		'click .toggle-card, .cancel-card': 'toggleCard',
+		'click .create-card'              : 'createCard'
   },
   
-  addCard: function(cards) {
-		var cardsShowView = new Trellino.Views.CardsShow({
-			model: cards
-		});
-
-    this.addSubview(".cards-show", cardsShowView);
-    cardsShowView.render();
-	},
+  initialize: function () {
+    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.collection, "add", this.render);
+  },
   
   render: function () {
     var renderedContent = this.template({
@@ -23,8 +17,25 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     });
 
     this.$el.html(renderedContent);
-    this.renderSubviews();
 
     return this;
-  }
+  },
+  
+  toggleCard: function (event) {
+		event.preventDefault();
+    
+    $(event.target).parent().find('.new-card').toggle();
+	},
+  
+  createCard: function (event) {
+    event.preventDefault();
+    
+    var listId = parseInt($(event.target).parent().attr("data-id"));
+    var $list = $(event.target).parent();
+    var listTitle = $list.find('#card-title').val();
+    var params = {title: listTitle, rank: 0, list_id: listId};
+		this.collection.create(params, { wait: true });
+    
+    $list.find('#card-title').val('');
+	}
 });

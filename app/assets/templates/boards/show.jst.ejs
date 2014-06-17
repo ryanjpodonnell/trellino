@@ -1,7 +1,26 @@
 <h2 class="list"><%= board.escape("title") %></h2>
 
 <div class="list-show"></div>
-<div class="list-new"></div>
+
+<div class="col-xs-12 col-md-3">
+  <div class="thumbnail-board new-list toggle-list">
+  	<h4>Add list...</h4>
+  </div>
+  
+  <div class="thumbnail-board new-list" style="display:none">
+  	<form role="form">
+      <div class="form-group">
+        <label class="sr-only" for="list-title">Title</label>
+    		<input type="text" class="form-control" 
+    			name="list[title]"
+          id="list-title"
+    			placeholder="Enter title..." />
+      </div>
+  	</form>
+    <button class="create-list btn btn-success">Create</button>
+	  <button class="cancel-list btn btn-danger">Cancel</button>
+  </div>
+</div>
 
 <!-- <ul id="sortable">
   <% board.lists().each(function (list) { %>
