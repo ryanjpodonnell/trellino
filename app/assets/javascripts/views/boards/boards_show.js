@@ -51,6 +51,12 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     var listId = parseInt($(event.target).attr("data-id"));
     var list = this.collection.get(listId);
     
+    for (var i = 0; i < this.subviews()['.list-show'].length; i += 1) {
+      if (this.subviews()['.list-show'][i].model.id === listId) {
+        this.removeSubview('.list-show', this.subviews()['.list-show'][i]);
+      }
+    }
+    
 		list.destroy();
     this.collection.remove(list);
   },
