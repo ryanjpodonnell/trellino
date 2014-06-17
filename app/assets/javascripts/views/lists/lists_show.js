@@ -24,6 +24,10 @@ Trellino.Views.ListsShow = Backbone.View.extend({
   toggleCard: function (event) {
 		event.preventDefault();
     
+    var listId = parseInt($(event.target).parent().attr("data-id"));
+    var $list = $(event.target).parent();
+    
+    $list.find('#card-title').val('');
     $(event.target).parent().find('.new-card').toggle();
 	},
   

@@ -22,17 +22,25 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
       model: list,
       collection: list.cards()
     });
+    
     this.addSubview(".list-show", listsShowView);
     listsShowView.render();
   },
   
-  render: function () {    
+  render: function () {
     var renderedContent = this.template({
       board: this.model
     });
 
     this.$el.html(renderedContent);
     this.renderSubviews();
+    
+    if (this.collection.length >= 4) {
+      $('#test').hide();
+    }
+    else {
+      $('#test').show();
+    }
 
     return this;
   },
