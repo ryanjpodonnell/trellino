@@ -1,14 +1,26 @@
-Trellino.Views.ListsShow = Backbone.View.extend({
+Trellino.Views.ListsShow = Backbone.CompositeView.extend({
   template: JST['lists/show'],
   
   events: {
 		'click .toggle-card, .cancel-card': 'toggleCard',
-		'click .create-card'              : 'createCard'
+		'click .create-card'              : 'createCard',
+    'click .well'                     : 'showCard'
   },
   
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.collection, "add", this.render);
+    
+    this.collection.each(this.addCard.bind(this));
+  },
+  
+  addCard: function (card) {
+    var cardsShowView = new Trellino.Views.CardsShow({
+      model: card
+    });
+    
+    this.addSubview(".card-show-" + card.id.toString(), cardsShowView);
+    cardsShowView.render();
   },
   
   render: function () {
@@ -17,6 +29,7 @@ Trellino.Views.ListsShow = Backbone.View.extend({
     });
 
     this.$el.html(renderedContent);
+    this.renderSubviews();
 
     return this;
   },
@@ -41,5 +54,11 @@ Trellino.Views.ListsShow = Backbone.View.extend({
 		this.collection.create(params, { wait: true });
     
     $list.find('#card-title').val('');
-	}
+	},
+  
+  showCard: function (event) {
+    event.preventDefault();
+    
+    $('#myModal69').modal('show');
+  }
 });

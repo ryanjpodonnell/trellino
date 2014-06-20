@@ -4,6 +4,7 @@
   
     <% list.cards().each(function(card) { %>
       <div class="well well-sm"><%= card.escape("title") %></div>
+      <div class="card-show-<%= card.id %>"></div>
     <% }) %>
   
     <div class="new-card card-add toggle-card">Add a card...</div>

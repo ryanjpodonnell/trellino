@@ -12,7 +12,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "add remove", this.render);
     this.listenTo(this.collection, "add", this.addList);
     
-    this.model.lists().each(this.addList.bind(this));
+    this.collection.each(this.addList.bind(this));
     
     $('body').css('background-color', '#23719f');
   },
@@ -35,13 +35,8 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     this.renderSubviews();
     
-    if (this.collection.length >= 4) {
-      $('#test').hide();
-    }
-    else {
-      $('#test').show();
-    }
-
+    this.collection.length >= 4 ? $('#test').hide() : $('#test').show();
+    
     return this;
   },
   
