@@ -3,7 +3,7 @@
     <h4><%= list.escape("title") %>  <button class="delete-list btn pull-right btn-danger btn-xs" data-id="<%= list.id %>">Delete</button></h4>
   
     <% list.cards().each(function(card) { %>
-      <div class="well well-sm"><%= card.escape("title") %></div>
+      <div class="well well-sm" data-id="<%= card.id %>"><%= card.escape("title") %></div>
       <div class="card-show-<%= card.id %>"></div>
     <% }) %>
   
