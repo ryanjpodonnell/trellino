@@ -32,6 +32,8 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     this.renderSubviews();
 
+    this.$('.card-container').sortable({});
+
     return this;
   },
   
