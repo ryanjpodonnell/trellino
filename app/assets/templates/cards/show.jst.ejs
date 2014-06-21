@@ -18,10 +18,9 @@
         <form role="form" class="new-desc" style="display:none">
           <div class="form-group">
             <label class="sr-only" for="card-description">Description</label>
-        		<input type="text" class="form-control" 
+        		<textarea class="form-control" rows="3"
         			name="card[description]"
-              value="<%= card.escape('description') %>"
-              id="card-description" />
+              id="card-description"><%= card.escape('description') %></textarea>
           </div>
       	</form>
         <button class="create-desc btn btn-success new-desc" style="display:none">Create</button>
