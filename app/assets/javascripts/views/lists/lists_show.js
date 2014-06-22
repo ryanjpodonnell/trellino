@@ -8,7 +8,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
   },
   
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render);
+    // this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.collection, "add remove", this.render);
     
     this.collection.each(this.addCard.bind(this));
@@ -31,9 +31,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 
     this.$el.html(renderedContent);
     this.renderSubviews();
-
-    this.$('.card-container').sortable({});
-
+    
     return this;
   },
   
