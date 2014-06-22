@@ -9,7 +9,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'backbone-on-rails'
 gem 'jquery-ui-rails'
-gem 'debugger'
 
 group :doc do
   gem 'sdoc', require: false
