@@ -36,7 +36,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     this.renderSubviews();
     
     $( ".card" ).draggable({ addClasses: false });
-    $( ".list" ).draggable({ addClasses: false });
+    $( ".list" ).droppable({ accept: ".card" });
     
     this.collection.length >= 4 ? $('#test').hide() : $('#test').show();
     
